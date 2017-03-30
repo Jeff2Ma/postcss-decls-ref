@@ -2,11 +2,15 @@
 
 <img align="right" width="130" height="130" title="PostCSS" src="http://postcss.github.io/postcss/logo.svg">
 
+[![Build Status](https://travis-ci.org/Jeff2Ma/postcss-decls-ref.svg?branch=master)](https://travis-ci.org/Jeff2Ma/postcss-decls-ref)
+[![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/Jeff2Ma/postcss-decls-ref?branch=master&svg=true)](https://ci.appveyor.com/project/Jeff2Ma/postcss-decls-ref)
+[![npm version](https://badge.fury.io/js/postcss-decls-ref.svg)](https://www.npmjs.com/package/postcss-decls-ref)
+[![change-log](https://img.shields.io/badge/changelog-md-blue.svg)](https://github.com/Jeff2Ma/postcss-decls-ref/blob/master/CHANGELOG.md)
 
 > A PostCSS plugin that extend declaration block from an existed rule with target selector (like sass `@extend`).
 
 
-## Example 1
+## Example
 
 ### Input
 
@@ -18,7 +22,7 @@
 }
 .classB {
 	float: left;
-    @ref .classA;
+	@ref .classA;
 }
 
 ```

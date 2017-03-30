@@ -1,5 +1,7 @@
 # postcss-decls-ref
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Jeff2Ma/postcss-decls-ref.svg)](https://greenkeeper.io/)
+
 <img align="right" width="130" height="130" title="PostCSS" src="http://postcss.github.io/postcss/logo.svg">
 
 

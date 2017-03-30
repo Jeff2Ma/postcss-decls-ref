@@ -1,0 +1,23 @@
+.classOthers {
+    font-size: 12px;
+}
+
+/*refer*/
+.classA {
+	background-image: url(logo.svg);
+	width: 12px;
+	height: 12px;
+}
+
+/*user @ref*/
+.classB {
+	float: left;
+    @ref .classA;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+	.classA {
+		background-image: url(logo2.svg);
+		background-size: 12px 12px;
+	}
+}

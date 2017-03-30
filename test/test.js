@@ -1,0 +1,75 @@
+var should = require('should');
+var fs = require('fs');
+var path = require('path');
+var vfs = require('vinyl-fs');
+var through2 = require('through2');
+var postcss = require('gulp-postcss');
+var noop = function () {
+};
+var ref = require('../index.js');
+
+describe('postcss-decls-ref Unit Test', function () {
+
+	describe('Option `refMod` is `clone`:', function () {
+
+		it('Basic function', function (done) {
+			vfs.src('./test/css/t1.css')
+				.pipe(postcss([ref()]))
+				.pipe(through2.obj(function (file, enc, cb) {
+					var content = file.contents.toString();
+					// fs.writeFileSync('./test/css/t1.1.css', content, 'utf8');
+					var cssExpected = fs.readFileSync(path.resolve(process.cwd(), './test/css/t1.1.css'), {encoding: 'utf8'});
+					cssExpected.should.be.equal(content);
+					cb();
+				}))
+				.on('data', noop)
+				.on('end', done);
+		});
+
+		it('Different Orders are not effect.', function (done) {
+			vfs.src('./test/css/t2.css')
+				.pipe(postcss([ref()]))
+				.pipe(through2.obj(function (file, enc, cb) {
+					var content = file.contents.toString();
+					// fs.writeFileSync('./test/css/t2.1.css', content, 'utf8');
+					var cssExpected = fs.readFileSync(path.resolve(process.cwd(), './test/css/t2.1.css'), {encoding: 'utf8'});
+					cssExpected.should.be.equal(content);
+					cb();
+				}))
+				.on('data', noop)
+				.on('end', done);
+		});
+	});
+
+	describe('Option `refMod` is `group`:', function () {
+
+		it('Basic function', function (done) {
+			vfs.src('./test/css/t1.css')
+				.pipe(postcss([ref({refMod: 'group'})]))
+				.pipe(through2.obj(function (file, enc, cb) {
+					var content = file.contents.toString();
+					// fs.writeFileSync('./test/css/t1.2.css', content, 'utf8');
+					var cssExpected = fs.readFileSync(path.resolve(process.cwd(), './test/css/t1.2.css'), {encoding: 'utf8'});
+					cssExpected.should.be.equal(content);
+					cb();
+				}))
+				.on('data', noop)
+				.on('end', done);
+		});
+
+		it('Different Orders are not effect.', function (done) {
+			vfs.src('./test/css/t2.css')
+				.pipe(postcss([ref({refMod: 'group'})]))
+				.pipe(through2.obj(function (file, enc, cb) {
+					var content = file.contents.toString();
+					// fs.writeFileSync('./test/css/t2.2.css', content, 'utf8');
+					var cssExpected = fs.readFileSync(path.resolve(process.cwd(), './test/css/t2.2.css'), {encoding: 'utf8'});
+					cssExpected.should.be.equal(content);
+					cb();
+				}))
+				.on('data', noop)
+				.on('end', done);
+		});
+	});
+
+});

@@ -1,0 +1,17 @@
+/*基础测试*/
+.classOthers {
+	font-size: 12px;
+}
+
+.classA {
+	background-color: red;
+	width: 12px;
+	height: 12px;
+}
+
+.classB {
+	float: left;
+	background-color: red;
+	width: 12px;
+	height: 12px;
+}

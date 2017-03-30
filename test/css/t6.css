@@ -1,0 +1,21 @@
+/*父子选择器的情况 2级*/
+.classA .subclassA {
+	background-color: red;
+	width: 12px;
+	height: 12px;
+}
+
+.classB {
+	float: left;
+	@ref .subclassA;
+}
+
+/*父子选择器的情况 3级*/
+.classC .subclassC .resubclassC {
+	display: none;
+}
+
+.classB {
+	float: right;
+	@ref .resubclassC;
+}

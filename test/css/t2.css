@@ -1,0 +1,17 @@
+/*测试前后顺序的不同是否有影响*/
+.classOthers {
+	font-size: 12px;
+}
+
+.classB {
+	float: left;
+	@ref .classA;
+}
+
+.classA {
+	background-color: red;
+	width: 12px;
+	height: 12px;
+}
+
+

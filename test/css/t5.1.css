@@ -8,5 +8,7 @@
 
 .classC {
 	float: left;
-	@ref .classB;
+	background-color: red;
+	width: 12px;
+	height: 12px;
 }

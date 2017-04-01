@@ -14,3 +14,5 @@ indent_size = 4
 
 [README.md]
 trim_trailing_whitespace = ignore
+indent_style = space
+indent_size = 4

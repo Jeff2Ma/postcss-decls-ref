@@ -1,6 +1,6 @@
 /*目标为组选择器的情况*/
 
-.classA, .classB {
+.classA, .classB, .classC {
 	background-color: red;
 	width: 12px;
 	height: 12px;
@@ -8,5 +8,4 @@
 
 .classC {
 	float: left;
-	@ref .classB;
 }

@@ -1,5 +1,5 @@
 /*父子选择器的情况 2级*/
-.classA .subclassA {
+.classA .subclassA, .classB {
 	background-color: red;
 	width: 12px;
 	height: 12px;
@@ -7,20 +7,17 @@
 
 .classB {
 	float: left;
-	@ref .subclassA;
 }
 
 /*父子选择器的情况 3级*/
-.classC .subclassC .resubclassC {
+.classC .subclassC .resubclassC, .classB, .classD .subclassD {
 	display: none;
 }
 
 .classB {
 	float: right;
-	@ref .resubclassC;
 }
 
 .classD .subclassD {
 	float: none;
-	@ref .resubclassC;
 }

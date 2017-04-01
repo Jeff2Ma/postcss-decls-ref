@@ -1,0 +1,15 @@
+/*测试媒体查询的情况*/
+.classA, .classB {
+	background-color: red;
+}
+
+.classB {
+	float: left;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+	.classA, .classB {
+		background-color: green;
+	}
+}
+

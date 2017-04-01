@@ -1,4 +1,7 @@
-/*目标为组选择器的情况*/
+/*测试有多个目标class 的情况*/
+.classA, .classB {
+	display: none;
+}
 
 .classA, .classB {
 	background-color: red;
@@ -6,7 +9,6 @@
 	height: 12px;
 }
 
-.classC {
+.classB {
 	float: left;
-	@ref .classB;
 }

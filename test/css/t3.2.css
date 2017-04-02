@@ -1,4 +1,4 @@
-/*测试媒体查询的情况*/
+/*Support for @media context*/
 .classA, .classB {
 	background-color: red;
 }

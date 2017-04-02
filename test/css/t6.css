@@ -1,4 +1,4 @@
-/*父子选择器的情况 2级*/
+/*Sub Class contexts are work well. level 2*/
 .classA .subclassA {
 	background-color: red;
 	width: 12px;
@@ -10,7 +10,7 @@
 	@ref .subclassA;
 }
 
-/*父子选择器的情况 3级*/
+/*Sub Class contexts are work well. level 3*/
 .classC .subclassC .resubclassC {
 	display: none;
 }

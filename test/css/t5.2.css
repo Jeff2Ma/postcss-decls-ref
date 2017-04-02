@@ -1,4 +1,4 @@
-/*目标为组选择器的情况*/
+/*Work well when target selector is part of group selectors*/
 
 .classA, .classB, .classC {
 	background-color: red;

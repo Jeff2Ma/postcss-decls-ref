@@ -1,4 +1,4 @@
-/*测试有多个目标class 的情况*/
+/*Mulit target selectors are work well*/
 .classA, .classB {
 	display: none;
 }

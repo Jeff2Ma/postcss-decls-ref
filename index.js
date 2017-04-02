@@ -19,21 +19,23 @@ module.exports = postcss.plugin('postcss-decls-ref', function (opts) {
 			selector = _.trim(selector, '\'"()');
 
 			var matchAtRule = false;
-			// 获取到 @ref 所对应的 selector 对应的rule，可能有多个，包含有@media 的
-			root.walkRules(new RegExp(selector), function (rule) {
-				// Clone (克隆) 模式
-				if (opts.refMod === 'clone') {
-					// 如果是在 @media 里面的目标 selector
-					if (rule.parent.type === 'atrule' && rule.parent.name === 'media') {
-						var mediaAtrule = rule.parent;
 
-						// 做一个拷贝
+			// Get the @ref atRule value, which is the selector's rules,
+			// May more than one, including @media part.
+			root.walkRules(new RegExp(selector), function (rule) {
+				// Clone Mod.
+				if (opts.refMod === 'clone') {
+					// If the target selector is in @media atRule.
+					if (rule.parent.type === 'atrule' && rule.parent.name === 'media') {
+						var mediaAtRule = rule.parent;
+
+						// Make a copy rule.
 						var userInMedia = postcss.rule({
 							selector: atRuleParent.selector,
 							source: rule.source
 						});
 
-						// 再将新的 refer 的decls append 到 userInMedia 上
+						// All the refer decls append to userInMedia.
 						_.forEach(rule.nodes, function (node) {
 							var clone = node.clone();
 							clone.raws.before = node.raws.before;
@@ -42,9 +44,9 @@ module.exports = postcss.plugin('postcss-decls-ref', function (opts) {
 							userInMedia.append(clone);
 						});
 
-						// 再追加到 refer 那里的 @media 那串东西上去
-						mediaAtrule.append(userInMedia);
-					// Else 就简单多了,直接循环拷贝 delcs
+						// Append to mediaAtRule.
+						mediaAtRule.append(userInMedia);
+					// Else, just make copy delcs.
 					} else {
 						_.forEach(rule.nodes, function (node) {
 							var clone = node.clone();
@@ -56,23 +58,23 @@ module.exports = postcss.plugin('postcss-decls-ref', function (opts) {
 					}
 					atRule.remove();
 					matchAtRule = true;
-					// 组合模式
+				// Group Mod.
 				} else if (opts.refMod === 'group') {
-					// 目标选择器
+					// Target Selector.
 					var targetSelector = rule.selector;
 					var userSelector = atRuleParent.selector;
 
-					// 目前选择器作为数组
+					// Set target as selectors array.
 					var targetSelectors = [targetSelector];
 
-					// 将使用的选择器与目标选择器合成为选择器数组
+					// Push userSelector to target array.
 					targetSelectors.push(userSelector);
 
-					// 更新到原来的选择器上
+					// Update to preview selectors.
 					rule.selectors = targetSelectors;
 					atRule.remove();
 					matchAtRule = true;
-					// 报错
+					// Option wrong setting.
 				} else {
 					throw new Error('Decls-ref: option `refMod` is not correct!');
 				}

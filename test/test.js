@@ -88,7 +88,7 @@ describe('postcss-decls-ref Unit Test', function () {
 				.pipe(postcss([ref()]))
 				.pipe(through2.obj(function (file, enc, cb) {
 					var content = file.contents.toString();
-					// // fs.writeFileSync('./test/css/t6.1.css', content, 'utf8');
+					// fs.writeFileSync('./test/css/t6.1.css', content, 'utf8');
 					var cssExpected = fs.readFileSync(path.resolve(process.cwd(), './test/css/t6.1.css'), {encoding: 'utf8'});
 					cssExpected.should.be.equal(content);
 					cb();

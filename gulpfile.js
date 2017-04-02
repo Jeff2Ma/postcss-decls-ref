@@ -7,7 +7,7 @@ var perfectionist = require('perfectionist');
 var rename = require('gulp-rename');
 
 var files = ['index.js'];
-var watchFiles = ['index.js', 'gulpfile.js', 'test/**/**'];
+var watchFiles = ['index.js', 'gulpfile.js', 'test/**/**', 'example/**/*.css'];
 
 gulp.task('lint', function () {
 	var eslint = require('gulp-eslint');

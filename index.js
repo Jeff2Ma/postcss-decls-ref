@@ -76,13 +76,13 @@ module.exports = postcss.plugin('postcss-decls-ref', function (opts) {
 					matchAtRule = true;
 					// Option wrong setting.
 				} else {
-					throw new Error('Decls-ref: option `refMod` is not correct!');
+					throw new Error('[ postcss-decls-ref ]: option `refMod` is not correct!');
 				}
 			});
 
 			if (!matchAtRule) {
 				// Version2: result.warn('\'' + atRule.params + '\' is not defined!');
-				log('Decls-ref:', gutil.colors.red(selector), 'is not define!');
+				log('Decls-ref:', gutil.colors.red(selector), 'is not define or not in same css contents!');
 			}
 		});
 	};

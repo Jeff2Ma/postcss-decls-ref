@@ -100,7 +100,7 @@ gulp.task('css', function () {
 
 ### dynamicAtRule
 
-> Dynamic the arRule name, remember not to rename the css existed one (like `@media`, `@support` , etc). `@` string in not needed.
+> Dynamic the atRule name, remember not to rename the css existed one (like `@media`, `@support` , etc). `@` character is not needed. Recommend: `@ref`, `@apply`.
 
 - Default: `'ref'`
 - Required: `false`

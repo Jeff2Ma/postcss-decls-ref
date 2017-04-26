@@ -69,7 +69,7 @@
 ## Installation
 
 ```bash
-npm install postcss-lazysprite --save-dev
+npm install postcss-decls-ref --save-dev
 ```
 ## Usage
 
@@ -80,7 +80,7 @@ Example:
 ```javascript
 var gulp = require('gulp');
 var postcss = require('gulp-postcss');
-var lazysprite = require('postcss-lazysprite');
+var ref = require('postcss-decls-ref');
 
 gulp.task('css', function () {
 	return gulp.src('./input.css')

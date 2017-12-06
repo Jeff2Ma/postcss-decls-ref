@@ -24,7 +24,7 @@
     "perfectionist": "^2.3.1",
     "should": "^13.0.0",
     "through2": "^2.0.1",
-    "vinyl-fs": "^2.4.3"
+    "vinyl-fs": "^3.0.0"
   },
   "scripts": {
     "test": "gulp test"

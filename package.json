@@ -6,6 +6,9 @@
   "directories": {
     "test": "test"
   },
+  "engines": {
+    "node": ">=6"
+  },
   "dependencies": {
     "gulp-util": "^3.0.8",
     "lodash": "^4.17.4",

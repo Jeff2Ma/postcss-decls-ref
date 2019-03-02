@@ -34,7 +34,7 @@ install:
   - ps: Install-Product node $env:nodejs_version
   # batch commands start from cmd:
   - npm cache clean
-  - npm i
+  - npm install --cache /tmp/empty-cache
   - npm install -g gulp
   - npm install -g mocha
 
@@ -42,7 +42,7 @@ install:
 test_script:
   # Output useful info for debugging.
   - node --version && npm --version
-  - npm i
+  - npm install --cache /tmp/empty-cache
   - pwd
   - gulp test
 
